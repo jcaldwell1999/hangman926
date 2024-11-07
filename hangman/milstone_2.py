@@ -10,6 +10,6 @@ word_list = [
 
 print(word_list)
 
-word_choice = random.choice(word_list)
+word = random.choice(word_list)
 
-print(word_choice)
+print(word)
