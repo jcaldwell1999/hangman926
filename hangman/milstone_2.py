@@ -1,6 +1,6 @@
 import random
 
-word_list = [
+fruit_list = [
     "Apples",
     "Grapes",
     "Oranges",
@@ -8,11 +8,11 @@ word_list = [
     "Strawberries"
 ]
 
-print(word_list)
+print(fruit_list)
 
-word = random.choice(word_list)
+random_fruit = random.choice(fruit_list)
 
-print(word)
+print(random_fruit)
 
-guess = input("Enter a single letter: ")
-print("Good guess!" if len(guess) == 1 and guess.isalpha() else "Oops! That is nto a valid input.")
+letter_input = input("Enter a single letter: ")
+print("Good guess!" if len(letter_input) == 1 and letter_input.isalpha() else "Oops! That is nto a valid input.")
