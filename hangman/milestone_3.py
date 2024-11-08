@@ -1,7 +1,7 @@
 import random
 
 # Fruit list
-fruit_list = [
+possible_fruits = [
     "Apples",
     "Grapes",
     "Oranges",
@@ -10,9 +10,9 @@ fruit_list = [
 ]
 
 # Choose random fruit
-random_fruit = random.choice(fruit_list)
+secret_word = random.choice(possible_fruits)
 
-# Infinite loop
+# Old Code
 '''
 while True:
     # Get user letter input
@@ -29,9 +29,10 @@ while True:
         print("Invalid letter. Please enter a single alphabetical character.")
 '''
 
-def check_guess(guess):
+# Checks guess 
+def check_letter_in_word(guess, word):
     guess = guess.lower()
-    if guess in random_fruit.lower():
+    if guess in word.lower():
         print("Good guess! " + guess + " is in the word.")
     else:
         print("Sorry, " + guess + " is not in the word. Try again.")
@@ -42,7 +43,7 @@ def ask_for_input():
         guess = input("Enter a single letter: ")
         
         if len(guess) == 1 and guess.isalpha():
-            check_guess(guess)
+            check_letter_in_word(guess, secret_word)
             break
         else:
             print("Invalid Letter. Pease enter a single alphabetical character.")
