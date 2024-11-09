@@ -31,11 +31,25 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 1. Continue guessing until you guess the word correctly, or run out of lives.
 
 
+### Milestone 5
+
+1. Ensure your working directory is set to "hangman926/hangman".
+1. In your bash / terminal, enter "python milestone_5.py"
+1. The game will prompt you to guess a letter.
+1. The game will validate your input:
+    - If the input is invalid (not a single alphabetical letter), you will be prompted to re-enter.
+    - If the letter has already been guessed, it will notify you.
+1. If the guess is correct, the letter is revealed in the word. If incorrect, you lose a life, with remaining lives displayed.
+1. The game will continue until:
+    - You correctly guess all the letters in the word, and the game congratulates you, or
+    - You run out of lives, and the game displays a loss message.
+
 ## File Structure
 
 - **hangman926:** Root directory of project
 - **hangman:** Directory holding Python files
-    - `milestone_3.py`: Basic letter validation and guessing functionality
+    - `milestone_3.py`: Basic letter validation and guessing functionality.
     - `milestone_4.py`: Class-based Hangman with lives, guess tracking, and input validation.
+    - `milestone_5.py`: Complete Hangman game with the play_game function, runs the full game loop.
 
 ## License Information
