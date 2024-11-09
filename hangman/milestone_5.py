@@ -30,10 +30,11 @@ class Hangman():
     def _update_word_guessed(self, guess):
         """Updates teh word_guessed list with the guessed letter"""
         for index, letter in enumerate(self.word.lower()):
-                if guess == letter:
-                    self.word_guessed[index] = guess # Replaces underscore with correct letter
+            if guess == letter:
+                self.word_guessed[index] = guess # Replaces underscore with correct letter
+        
 
-    def check_guess(self, guess):
+    def process_guess(self, guess):
         """
         Processes a guessed letter. Checks if it's in teh word, and updates the game.
 
@@ -48,6 +49,7 @@ class Hangman():
             self.num_letters -= 1
         else:
             self._decrement_lives(guess)
+        print("Current word: ", ''.join(self.word_guessed))
 
     def _decrement_lives(self, guess):
         """Reduces lives by one and prints an update"""
@@ -63,12 +65,17 @@ class Hangman():
         while True:
             guess = input("Enter your guess: ").lower()
             if self._validate_guess(guess):
-                self.check_guess(guess)
+                self.process_guess(guess)
                 self.list_of_guesses.append(guess)
                 break
 
     def _validate_guess(self, guess):
-        """ Checks if the guess is valid and hasn't been used."""
+        """
+        Checks if the guess is valid and hasn't been used.
+        
+        Parameters:
+        guess: The letter guessed by the player.
+        """
         if len(guess) != 1 or not guess.isalpha():
             print("Invalid letter. Please enter a single alphabetical character.")
             return False
@@ -77,17 +84,17 @@ class Hangman():
             return False
         return True
     
-    def play_game(self, word_list):
-        num_lives = 5
-        game = Hangman(word_list, num_lives)
+    def play_game(self):
+        """Runs the game loop, checks win and loss conditions, asks for input."""
         while True:
-            if game.num_lives == 0:
-                print("You Lost")
+            if self.num_lives == 0:
+                print("You Lost. The word was: ", self.word)
                 break
-            elif game.num_letters > 0:
-                game.ask_for_input()
+            elif self.num_letters > 0:
+                self.ask_for_input()
             else:
                 print("Congratulations! You wont the game!")
+                print("The word was: ", self.word)
                 break
 
 
@@ -95,5 +102,5 @@ word_list = ["Apples", "Mangos", "Grapes", "Oranges"]
 
 game_test = Hangman(word_list)
 
-game_test.play_game(word_list)
+game_test.play_game()
                 
